@@ -1,0 +1,58 @@
+img {
+    &.media-object {
+        padding: 10px 14px 10px 0;
+        max-width: 80px;
+    }
+}
+
+span.badge{ 
+    margin: 2px;
+    font-weight: 400;
+
+    &.badge-secondary {
+        background-color: #f0f0f0;
+        color: #272727;
+    }
+
+    &.score-badge {
+        font-weight: 600;
+        background-color: lightpink;
+        color: #646464;
+        margin-top: 0px;
+    }
+}
+
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 2px 3px 4px #f0f0f0;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.list-group-item {
+    padding: 12px 0;
+}
+
+thead > tr {
+    th {
+        font-weight: 500;
+    }
+}
+
+.table {
+    td {
+        padding: 5px;
+    }
+
+    &.table-striped tbody tr:nth-of-type(2n+1) {
+        background-color: #a7a7a70d;
+    }
+}
+
+.btn {
+    .btn-secondary {
+        background-color: #8f8f8f;
+        border-color: #8f8f8f;
+    }
+}

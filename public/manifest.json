@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Remote Work Stats",
+  "name": "Stats about remote working job positions and companies",
   "icons": [
     {
       "src": "favicon.ico",
