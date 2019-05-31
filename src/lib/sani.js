@@ -113,7 +113,7 @@ const helpers = {
   match: (value, matches) => {
     const ratios = matches.map(m => [m, levenshteinRatio(value, m)])
 
-    return ratios.sort((a, b) => a[1] < b[1])[0][0]
+    return ratios.sort((a, b) => b[1] - a[1])[0][0]
   },
   replace: (value, matches) => {
     let matched = matches.filter(m => value.indexOf(m) > -1)

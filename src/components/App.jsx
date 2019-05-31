@@ -320,7 +320,7 @@ class App extends Component {
   }
 
   sorted = (chartData) => {
-    return chartData.sort((a, b) => a[1] < b[1])
+    return chartData.sort((a, b) => b[1] - a[1])
   }
 
   getFilteredCount = () => {
@@ -514,7 +514,7 @@ class App extends Component {
             <Card>
               <CardBody>
                 <h4 className="ranking-title">&#x1F4B0; Remote Position Salaries</h4>
-                <BootstrapTable data={this.state.items} version="4"
+                <BootstrapTable className="data-table" data={this.state.items} version="4"
                     ref="table"
                     keyField="id"
                     search searchPlaceholder="Search ..."
