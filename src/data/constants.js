@@ -29,6 +29,7 @@ const header_options = [
   {value: "company_size", label: "Company Size"},
   {value: "funds_raised", label: "Funds Raised"},
   {value: "annual_salary", label: "Annual Salary"},
+  {value: "salary", label: "Salary (dirty)"},
   {value: "company_hq", label: "Company HQ"},
   {value: "located", label: "Employee Location"},
   {value: "nomad", label: "Nomading"},

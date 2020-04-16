@@ -1,5 +1,5 @@
 /**
- * SaniJS is an awesome lightweight & powerfull text sanitizing library 
+ * SaniJS is an awesome lightweight & powerful text sanitizing library 
  * for javascript.
  */
 

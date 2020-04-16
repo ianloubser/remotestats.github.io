@@ -16,7 +16,8 @@ import TopNav from './TopNav'
 import Footer from './Footer'
 import {table_headers, header_options} from '../data/constants'
 
-const salariesSheetId = "16G5epyOKvzvNsmJ8ib-y5m59kg1W4XW7nynsAzURHHw";
+// const salariesSheetId = "16G5epyOKvzvNsmJ8ib-y5m59kg1W4XW7nynsAzURHHw";
+const salariesSheetId = "1VOehQv0bOs2pY7RkKJ8RmlUbuu8UmSgzfvjR0m5hyxQ";
 const hiringSheetId = "1TLJSlNxCbwRNxy14Toe1PYwbCTY7h0CNHeer9J0VRzE";
 const apiKey = "AIzaSyCGSp7L1T4QkANqkczX16Dq5IkrTS-8ElI";
 const mapsKey = "AIzaSyA1ZaVaIWBRYoDZsN-zpq3gipFBGXTNJbY";
@@ -81,9 +82,10 @@ class App extends Component {
       {value: "category", label: "Category"},
       {value: "experience_years", label: "Experience years"},
       {value: "located", label: "Employee Location"},
-      {value: "company_hq", label: "Company HQ"},
+      // {value: "company_hq", label: "Company HQ"},
       {value: "company_size", label: "Company Size"},
-      {value: "annual_salary", label: "Annual Salary"}
+      {value: "annual_salary", label: "Annual Salary"},
+      {value: "salary", label: "Salary (dirty)"}
     ],
     categoryFilters: [],
     items: [],
@@ -118,7 +120,7 @@ class App extends Component {
   loadSheetData = () => {
     window.gapi.client.sheets.spreadsheets.values.get({
       spreadsheetId: salariesSheetId,
-      range: 'Remote workers salaries!A27:S',
+      range: 'Remote workers salaries!A6:S',
       valueRenderOption: "UNFORMATTED_VALUE"
     }).then((response) => {
       return this.sanitize(response.result.values)
@@ -209,7 +211,10 @@ class App extends Component {
       let count = parseFloat(tmp[key].length)
       let sum = tmp[key].reduce((acc, val) => !isNaN(parseFloat(val)) ? parseFloat(acc) + parseFloat(val) : acc)
       medians[key] = median(tmp[key])
-      avg.push([key, (sum / count), count])
+      const average = (sum / count)
+      if (!isNaN(average)) {
+        avg.push([key, average, count])
+      }
     })
 
 
@@ -265,6 +270,7 @@ class App extends Component {
         company_size: item[3],
         funds_raised: item[4],
         annual_salary: item[5],
+        salary: `${item[5]}`,
         company_hq: item[6],
         located: item[7] ? item[7].toUpperCase(): (item[8] ? item[8].toUpperCase() : "Unspecified"), // ? `${item[7]} - ${item[8]}` : 
         nomad: item[9],
